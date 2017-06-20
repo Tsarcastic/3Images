@@ -2,12 +2,14 @@
 
 var images = [];
 var totalClicks = 0;
+var arrayOne = [];
+var arrayTwo = [];
 
 function pic(name, path) {
   this.id = name;
   this.path = path;
   this.clickTally = 0;
-  this.shownTally = 0
+  this.shownTally = 0;
   images.push(this)
 }
 
@@ -41,10 +43,20 @@ function handleClick(event) {
     if(event.target.id === images[i].id ) {
       totalClicks += 1;
       images[i].clickTally += 1;
+      //render a new round of images
     }
   }
 }
 
-function randomImgNum() {;
+function randomImgNum() {; //Generate the branch number
   return Math.floor(Math.random() * (images.length));
+}
+
+function renderImage() {
+  var trEl = document.createElement('tr');
+
+  var tdEl = document.createElement('td');
+  var thisFlip = images[randomImgNum()];
+  tdEl.textContent = '<img src=\"' + thisFlip.path + '\" id=\"' + thisFlip.id + '\">';
+  return tdEl.textContent
 }
