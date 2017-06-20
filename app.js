@@ -2,8 +2,8 @@
 
 var images = [];
 var totalClicks = 0;
-var newRay = [];
-var oldRay = [];
+var newRay = [1, 2, 3]; //placeholder numbers
+var oldRay = [3, 2, 1]; //placeholder numbers
 var myTable = document.getElementById('images');
 
 function Pic(name, path) {
@@ -44,7 +44,7 @@ function handleClick(event) {
     if(event.target.id === images[i].id ) {
       totalClicks += 1;
       images[i].clickTally += 1;
-      //need to render a new round of images
+      //generateRay then appendRay.
     }
   }
 }
@@ -53,28 +53,39 @@ function randomImgNum() {; //Generate the branch number
   return Math.floor(Math.random() * (images.length));
 }
 
-function generateRay() {
+function generateRay() { //Needs work. How to avoid repeat images?
   var oldRay = newRay;
-  var newRay = [];
-  while (newRay.length < 1) {
+  newRay = [1, 2, 3];
+  while (newRay[0] = 1) {
     var thisFlip = images[randomImgNum()];
     if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2]) {
-    } else newRay.push(thisFlip)
-  };
-  while (newRay.length < 2) {
-    var thisFlip = images[randomImgNum()];
-    if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0]) {
-    } else newRay.push(thisFlip)
-  };
-  while (newRay.length < 3) {
-    var thisFlip = images[randomImgNum()];
-    if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0] || thisFlip ===newRay[1]) {
-    } else newRay.push(thisFlip)
-  }
+      continue;
+    } else {
+      newRay.slice(0, 1, thisFlip)
+    }
 
 
-  var thisFlip = images[randomImgNum()]
 }
+}
+
+// };
+// while (newRay.length < 2) {
+//   var thisFlip = images[randomImgNum()];
+//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0]) {
+//   } else {newRay.push(thisFlip)}
+// };
+// while (newRay.length < 3) {
+//   var thisFlip = images[randomImgNum()];
+//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0] || thisFlip ===newRay[1]) {
+//   } else {newRay.push(thisFlip)}
+// }
+//
+// while (x < 3)
+//   for (var i = 0, i <)
+//   var thisFlip = images[randomImgNum()];
+
+// var thisFlip = images[randomImgNum()] IN CASE I LOSE IT
+
 
 
 // function renderImage() {
