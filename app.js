@@ -4,26 +4,25 @@ var images = [];
 var totalClicks = 0;
 var newRay = [1, 2, 3]; //placeholder numbers
 var oldRay = [3, 2, 1]; //placeholder numbers
-var myTable = document.getElementById('images');
+var img3 = document.getElementById('img3');
 var voteRat = []
 var ids = [] //Need to populate. (Can do it)
 
-if totalClicks >= 25 {}
+// if totalClicks >= 25 {}; Remove images (removeIm), add message & button to reveal chart (closingTime).
 
 function Pic(name, path) {
   this.id = name;
   this.path = path;
   this.clickTally = 0;
   this.shownTally = 0;
-  images.push(this);
-  ids.push(this.name);
+  images.push(this)
 }
 
 new Pic('bag','assets/bag.jpg');
 new Pic('banana', 'assets/banana.jpg');
 new Pic('bathroom', 'assets/bathroom.jpg');
 new Pic('boots', 'assets/boots.jpg');
-new Pic('breakfast', 'assets/boot.jpg');
+new Pic('breakfast', 'assets/breakfast.jpg');
 new Pic('bubblegum', 'assets/bubblegum.jpg');
 new Pic('chair', 'assets/chair.jpg');
 new Pic('cthulhu', 'assets/cthulhu.jpg');
@@ -36,12 +35,9 @@ new Pic('shark', 'assets/shark.jpg');
 new Pic('sweep', 'assets/sweep.png');
 new Pic('tauntaun', 'assets/tauntaun.jpg');
 new Pic('unicorn', 'assets/unicorn.jpg');
-new Pic('usb', 'usb.gif');
-new Pic('water-can.jpg', 'water-can.jpg');
-new Pic('wine-glass.jpg', 'wine-glass');
-
-var container = document.getElementById('bag');
-container.addEventListener('click', handleClick);
+new Pic('usb', 'assets/usb.gif');
+new Pic('water-can.jpg', 'assets/water-can.jpg');
+new Pic('wine-glass.jpg', 'assets/wine-glass.jpg');
 
 function handleClick(event) {
   console.log('Click click!')
@@ -67,6 +63,20 @@ function generateRay() { //Generates a new array & sets old array
     if (oldRay.indexOf(thisPic) === -1 && newRay.indexOf(thisPic) === -1) {
       newRay.push(thisPic)
     }
+    continue;
   }
   oldRay = newRay;
 }
+
+function renderImage() {
+
+  for (var i = 0; i < newRay.length; i++) {
+    var imgEl = document.createElement('img');
+    imgEl.src = images[i].path;
+    imgEl.id = images[i].id;;
+    img3.appendChild(imgEl)
+  }
+};
+
+generateRay();
+renderImage();
