@@ -6,6 +6,8 @@ var newRay = [1, 2, 3]; //placeholder numbers
 var oldRay = [3, 2, 1]; //placeholder numbers
 var myTable = document.getElementById('images');
 
+if totalClicks >= 25 {}
+
 function Pic(name, path) {
   this.id = name;
   this.path = path;
@@ -49,51 +51,19 @@ function handleClick(event) {
   }
 }
 
-function randomImgNum() {; //Generate the branch number
-  return Math.floor(Math.random() * (images.length));
+function randomImg() {; //Generate a random item from images array
+  var spot = Math.floor(Math.random() * (images.length));
+  return images[spot]
 }
 
-function generateRay() { //Needs work. How to avoid repeat images?
-  var oldRay = newRay;
-  newRay = [1, 2, 3];
-  while (newRay[0] = 1) {
-    var thisFlip = images[randomImgNum()];
-    if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2]) {
-      continue;
-    } else {
-      newRay.slice(0, 1, thisFlip)
+function generateRay() { //Generates a new array & sets old array
+  newRay = []
+  while (newRay.length < 3) {
+    var thisPic = randomImg();
+    console.log(thisPic);
+    if (oldRay.indexOf(thisPic) === -1 && newRay.indexOf(thisPic) === -1) {
+      newRay.push(thisPic)
     }
-
-
+  }
+  oldRay = newRay;
 }
-}
-
-// };
-// while (newRay.length < 2) {
-//   var thisFlip = images[randomImgNum()];
-//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0]) {
-//   } else {newRay.push(thisFlip)}
-// };
-// while (newRay.length < 3) {
-//   var thisFlip = images[randomImgNum()];
-//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0] || thisFlip ===newRay[1]) {
-//   } else {newRay.push(thisFlip)}
-// }
-//
-// while (x < 3)
-//   for (var i = 0, i <)
-//   var thisFlip = images[randomImgNum()];
-
-// var thisFlip = images[randomImgNum()] IN CASE I LOSE IT
-
-
-
-// function renderImage() {
-//   var trEl = document.createElement('tr');
-//
-//   var tdEl = document.createElement('td');
-//   var thisFlip = images[randomImgNum()];
-//     tdEl.textContent = '<img src=\"' + thisFlip.path + '\" id=\"' + thisFlip.id + '\">';
-//   trEl.appendChild(tdEl);
-//   myTable.appendChild(trEl)
-// } PART OF APPENDING LATER
