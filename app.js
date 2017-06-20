@@ -5,6 +5,8 @@ var totalClicks = 0;
 var newRay = [1, 2, 3]; //placeholder numbers
 var oldRay = [3, 2, 1]; //placeholder numbers
 var myTable = document.getElementById('images');
+var voteRat = []
+var ids = [] //Need to populate. (Can do it)
 
 if totalClicks >= 25 {}
 
@@ -13,7 +15,8 @@ function Pic(name, path) {
   this.path = path;
   this.clickTally = 0;
   this.shownTally = 0;
-  images.push(this)
+  images.push(this);
+  ids.push(this.name);
 }
 
 new Pic('bag','assets/bag.jpg');
