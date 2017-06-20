@@ -1,0 +1,30 @@
+// };
+// while (newRay.length < 2) {
+//   var thisFlip = images[randomImgNum()];
+//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0]) {
+//   } else {newRay.push(thisFlip)}
+// };
+// while (newRay.length < 3) {
+//   var thisFlip = images[randomImgNum()];
+//   if (thisFlip === oldRay[0] || thisFlip === oldRay[1] || thisFlip === oldRay[2] || thisFlip === newRay[0] || thisFlip ===newRay[1]) {
+//   } else {newRay.push(thisFlip)}
+// }
+//
+// while (x < 3)
+//   for (var i = 0, i <)
+//   var thisFlip = images[randomImgNum()];
+
+// var thisFlip = images[randomImgNum()] IN CASE I LOSE IT
+
+
+
+// function renderImage() {
+//   var trEl = document.createElement('tr');
+//
+//   var tdEl = document.createElement('td');
+//  for (var i = 0; i < newRay.length; i++)
+//   var thisFlip = images[0];
+//      tdEl.innerHTML = '<img src=\"' + thisFlip.path + '\" id=\"' + thisFlip.id + '\">';
+        trEl.appendChild(tdEl);
+//   myTable.appendChild(trEl)
+// } PART OF APPENDING LATER
