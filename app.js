@@ -42,15 +42,14 @@ new Pic('wine-glass.jpg', 'assets/wine-glass.jpg');
 function handleClick(event) {
   console.log('Click click!')
   for(var i = 0; i < images.length; i++) {
-    if(event.target.id === newRay[i].id ) { // I think this is failing because new ray is set to [] by this point
-      newRay[i].clicks++;
+    if(event.target.id === images[i].id ) { // I think this is failing because new ray is set to [] by this point
+      images[i].clickTally++;
       totalClicks++;
+      generateRay();
+      clearImages();
+      renderImage();
     }
   }
-  while (img3.hasChildNodes()) {
-    img3.removeChild(img3.firstChild);
-  }
-  renderImage();
 }
 
 function randomImg() {; //Generate a random item from images array
@@ -80,6 +79,12 @@ function renderImage() {
     img3.appendChild(imgEl)
   }
 };
+
+function clearImages() {
+  while (img3.firstChild) {
+    img3.removeChild(img3.firstChild);
+  }
+}
 
 generateRay();
 renderImage();
