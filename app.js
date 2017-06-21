@@ -42,10 +42,12 @@ new Pic('wine-glass.jpg', 'assets/wine-glass.jpg');
 function handleClick(event) {
   console.log('Click click!')
   for(var i = 0; i < images.length; i++) {
-    if(event.target.id === images[i].id ) {
-      totalClicks += 1;
-      images[i].clickTally += 1;
-      //generateRay then appendRay.
+    if(event.target.id === images[i].id ) { // I think this is failing because new ray is set to [] by this point
+      images[i].clickTally++;
+      totalClicks++;
+      generateRay();
+      clearImages();
+      renderImage();
     }
   }
 }
@@ -72,11 +74,18 @@ function renderImage() {
 
   for (var i = 0; i < newRay.length; i++) {
     var imgEl = document.createElement('img');
-    imgEl.src = images[i].path;
-    imgEl.id = images[i].id;;
+    imgEl.src = newRay[i].path;
+    imgEl.id = newRay[i].id;;
     img3.appendChild(imgEl)
   }
 };
 
+function clearImages() {
+  while (img3.firstChild) {
+    img3.removeChild(img3.firstChild);
+  }
+}
+
 generateRay();
 renderImage();
+img3.addEventListener('click', handleClick);

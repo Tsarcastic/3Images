@@ -1,0 +1,17 @@
+* {
+  outline: 1px dashed orange;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+h1 {
+  margin: 0 auto;
+  
+}
+
+h2 {
+  margin: 0 auto;
+}
