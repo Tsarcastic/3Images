@@ -44,11 +44,10 @@ new Pic('wine-glass.jpg', 'assets/wine-glass.jpg');
 function handleClick(event) {
   console.log('Click click!')
   for(var i = 0; i < images.length; i++) {
-    if(event.target.id === images[i].id ) { // I think this is failing because new ray is set to [] by this point
-      checkStorage();
+    if(event.target.id === images[i].id ) {
       images[i].clickTally++;
       totalClicks++;
-      pushThing;
+      pushThing();
       generateRay();
       clearImages();
       renderImage();
@@ -104,18 +103,13 @@ function pullThing() {
   }
 }
 
-function checkStorage() {
-  if (localStorage) {
-    pullThing;
-  } else {
-    pushThing;
-    pullThing;
-  };
-
+if (localStorage) {
+  pullThing();
 }
 
 
-checkStorage();
+
+
 generateRay();
 renderImage();
 img3.addEventListener('click', handleClick);
