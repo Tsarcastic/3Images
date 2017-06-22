@@ -2,10 +2,11 @@
 
 var images = [];
 var totalClicks = 0;
+var totalViews = 0;
 var newRay = [1, 2, 3]; //placeholder numbers
 var oldRay = [3, 2, 1]; //placeholder numbers
 var img3 = document.getElementById('img3');
-var voteRat = []
+var voteRat = 0
 var ids = [] //Need to populate. (Can do it)
 
 // if totalClicks >= 25 {}; Remove images (removeIm), add message & button to reveal chart (closingTime).
@@ -15,6 +16,7 @@ function Pic(name, path) {
   this.path = path;
   this.clickTally = 0;
   this.shownTally = 0;
+  this.voteRat = this.clickTally/this.shownTally
   images.push(this)
 }
 
@@ -42,9 +44,10 @@ new Pic('wine-glass.jpg', 'assets/wine-glass.jpg');
 function handleClick(event) {
   console.log('Click click!')
   for(var i = 0; i < images.length; i++) {
-    if(event.target.id === images[i].id ) { // I think this is failing because new ray is set to [] by this point
+    if(event.target.id === images[i].id ) {
       images[i].clickTally++;
       totalClicks++;
+      pushThing();
       generateRay();
       clearImages();
       renderImage();
@@ -85,6 +88,27 @@ function clearImages() {
     img3.removeChild(img3.firstChild);
   }
 }
+
+function pushThing() {
+  localStorage.clear();
+  var imagesJSON = JSON.stringify(images);
+  localStorage.things = imagesJSON;
+}
+
+function pullThing() {
+  var retrievedThing = localStorage.things;
+  var parsedThing = JSON.parse(retrievedThing);
+  for (var i = 0; i < parsedThing.length; i ++) {
+    images[i] = parsedThing[i];
+  }
+}
+
+if (localStorage) {
+  pullThing();
+}
+
+
+
 
 generateRay();
 renderImage();
