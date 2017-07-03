@@ -55,7 +55,7 @@ function handleClick(event) {
   }
   if (totalClicks === 25) {
     img3.removeEventListener('click', handleClick);
-    clearImages()
+    clearImages();
   }
 }
 
