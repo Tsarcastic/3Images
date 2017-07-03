@@ -53,7 +53,12 @@ function handleClick(event) {
       renderImage();
     }
   }
+  if (totalClicks === 25) {
+    img3.removeEventListener('click', handleClick);
+    clearImages()
+  }
 }
+
 
 function randomImg() {; //Generate a random item from images array
   var spot = Math.floor(Math.random() * (images.length));
