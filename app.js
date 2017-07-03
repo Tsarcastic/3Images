@@ -79,6 +79,10 @@ function handleClick(event) {
     img3.removeEventListener('click', handleClick);
     clearImages();
     console.log(images);
+    calcRat();
+    myChart();
+    myChart2();
+
   }
 }
 
@@ -136,6 +140,156 @@ if (localStorage === true) {
   pullThing();
 }
 
+function myChart() {
+  var chartLabel = [];
+  var chartData = [];
+  for (var i = 0; i < images.length; i++) {
+    chartData.push(images[i].clickTally);
+    chartLabel.push(images[i].id);
+  }
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: chartLabel,
+      datasets: [{
+        label: 'Bus Mall - Product Interest ',
+        data: chartData,
+        backgroundColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .9)',
+          'rgba(255, 206, 88, .8)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, .9)',
+          'rgba(255, 159, 64, .8)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .7)',
+          'rgba(255, 206, 88.8)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255,.9)',
+          'rgba(255, 159, 64,.8)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .8)',
+          'rgba(255, 206, 88, .9)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, .9)',
+          'rgba(255, 159, 64, .8)',
+          'rgba(255, 99, 132,1)',
+          'rgba(54, 162, 235.9)',
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+
+function myChart2() {
+  var chartLabel = [];
+  var chartCon = [];
+  for (var i = 0; i < images.length; i++) {
+    chartLabel.push(images[i].id);
+    chartCon.push(images[i].final);
+  }
+
+  var ctx = document.getElementById("myChart2").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+      labels: chartLabel,
+      datasets: [{
+        label: 'Buss Mall - Conversion -Rate',
+        data: chartCon,
+        backgroundColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .9)',
+          'rgba(255, 206, 88, .8)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, .9)',
+          'rgba(255, 159, 64, .8)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .7)',
+          'rgba(255, 206, 88.8)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255,.9)',
+          'rgba(255, 159, 64,.8)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, .8)',
+          'rgba(255, 206, 88, .9)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, .9)',
+          'rgba(255, 159, 64, .8)',
+          'rgba(255, 99, 132,1)',
+          'rgba(54, 162, 235.9)',
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
 
 
 
